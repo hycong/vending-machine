@@ -18,6 +18,7 @@ class AgentPath
 
     public function test()
     {
+        echo 6666;
         return 'test';
     }
 
