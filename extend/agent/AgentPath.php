@@ -16,12 +16,6 @@ class AgentPath
 {
     protected static $cache;
 
-    public function test()
-    {
-        echo 99999;
-        return 'test';
-    }
-
     public static function get_path($id,$is_self = true){
         static::$cache = Cache::get('agent_path');
         $returndata = [];
