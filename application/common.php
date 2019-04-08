@@ -10,3 +10,23 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+function p($row = [],$isExit = true){
+    echo '<pre>'.print_r($row,true).'</pre>';
+    if ($isExit) exit();
+}
+
+/**
+ * @param int $code
+ * @param string $msg
+ * @param array $data
+ * @param string $url
+ * @return array
+ */
+function returnState($code = 100,$msg = '',$data = [],$url = ''){
+    return [
+        'state' => $code,
+        'msg' => $msg,
+        'data' => $data,
+        'url' => $url,
+    ];
+}
