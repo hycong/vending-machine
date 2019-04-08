@@ -21,7 +21,7 @@ class Replenishment extends Common
     public function index(){
         $page = input('page',1);
         $where = [
-            ['r.mr_rep_id','=',$this->rep_id],
+            'r.mr_rep_id' => $this->rep_id,
         ];
         $list = Db::name('rep_replenishment')->alias('r')
             ->join('machine m','r.mr_machine_id=m.machine_id','left')
@@ -30,21 +30,23 @@ class Replenishment extends Common
             ->group('mr_trade_no')
             ->order('mr_createTime desc')
             ->limit(($page-1)*$this->pageNum,$this->pageNum)->select();
-        $url = url('',array_merge(request()->param(),['page'=>$page+1]));
-        if($page>1) return returnState(200,'获取成功',$this->fetch('index_data',['list'=>$list]),$url);
-        return $this->fetch('',['list'=>$list,'url'=>$url]);
+        if(!$list) return returnState(100,'没有数据！');
+        return returnState(200,'获取成功',$list);
     }
 
+    /**
+     * 补货处理
+     */
     public function replenish(){
         $machine_id = input('machine_id');
         if (intval($machine_id) == 0) {
-            return $this->error("设备ID获取失败，请重新进入页面");
+            return returnState(100,"设备ID获取失败，请重新进入页面");
         }
         $map = [
-            ['mc.channel_machine_id','=',$machine_id],
-            ['mc.channel_status','=',1],
-            ['m.machine_rep_id','=',$this->rep_id],
-            ['mc.channel_goods_id','<>',0]
+            'mc.channel_machine_id' => $machine_id,
+            'mc.channel_status' => 1,
+            'm.machine_rep_id' => $this->rep_id,
+            'mc.channel_goods_id' => ['<>',0],
         ];
         $channel_list = Db::name('machine_channel')
             ->alias('mc')
@@ -95,13 +97,13 @@ class Replenishment extends Common
                 ]);
                 Db::name('machine_channel')->where(['channel_id'=>$channel_list[$key]['channel_id']])->inc('channel_stock',$value)->update(); // 货道添加库存
             }
-            if($machine_info['agent_openid'] != ''){
+            if($machine_info['agent_openid'] != '' && $template['template_id'] != ''){
                 $app = Factory::officialAccount(GetCache::getCache('wechat'));
                 $app->template_message->send($template);
             }
-            return $this->success('保存成功');
+            return returnState(200,'补货成功！');
         }
-        return $this->fetch('',[
+        return returnState(200,'获取成功！',[
             'channel_list' => $channel_list,
             'machine_id' => $machine_id,
         ]);
@@ -110,7 +112,7 @@ class Replenishment extends Common
     public function replenish_all(){
         $machine_id = input('machine_id');
         if (intval($machine_id) == 0) {
-            return $this->error("设备ID获取失败，请重新进入页面");
+            return returnState(100,"设备ID获取失败，请重新进入页面");
         }
         $map = [
             ['mc.channel_machine_id','=',$machine_id],
@@ -146,21 +148,23 @@ class Replenishment extends Common
             ]);
             Db::name('machine_channel')->where(['channel_id'=>$value['channel_id']])->inc('channel_stock',$num)->update(); // 货道添加库存
         }
-        return $this->success('保存成功');
+        return returnState(200,'补货成功！');
     }
 
-
+    /**
+     * 补货详情
+     */
     public function details(){
         $trade_no = input('trade_no');
         $where = [
-            ['mr_trade_no','=',$trade_no],
-            ['mr_rep_id','=',$this->rep_id],
+            'mr_trade_no' => $trade_no,
+            'mr_rep_id' => $this->rep_id,
         ];
         $list = Db::name('rep_replenishment')->alias('r')
             ->join('goods g','r.mr_goods_id=g.goods_id','left')
             ->where($where)
             ->select();
-        return $this->fetch('',['list'=>$list]);
+        return returnState(200,'补货成功！',['list'=>$list]);
     }
 
 }
