@@ -18,7 +18,7 @@ class AgentPath
 
     public function test()
     {
-        return 'test';
+        return 'test123sdafasdf';
     }
 
     public static function get_path($id,$is_self = true){
