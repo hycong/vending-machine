@@ -12,4 +12,8 @@ namespace app\system\controller;
 class Index extends Common
 {
 
+    public function index(){
+
+    }
+
 }

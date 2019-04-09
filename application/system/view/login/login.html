@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 登录"}
+</head>
+<body class="login-body">
+<div class="container">
+    <form class="form-signin" action="{:url('')}">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">Sign In</h1>
+            <img src="/resource/web/images/login-logo.png" alt=""/>
+        </div>
+        <div class="login-wrap">
+            <input type="text" id="userName" class="form-control" placeholder="用户名" autofocus>
+            <input type="password" id="userPassword" class="form-control" placeholder="密码">
+            <button class="btn btn-lg btn-login btn-block" id="check" type="button">
+                <i class="fa fa-check"></i>
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<script>
+    $('#check').click(function () {
+        var captcha = $("#captcha").val();
+        var username = $("#userName").val();
+        var password = $("#userPassword").val();
+        $.ajax({
+            url:"{:url('check')}",
+            data:{captcha:captcha,username:username,password:password},
+            type:"post",
+            success:function (data) {
+                if(data.state == 200){
+                    location.href = "{:url('index/index')}";
+                }else{
+                    $('#verify_img').trigger('click');
+                    layer.msg(data.msg);
+                }
+            }
+        });
+        return false;
+    })
+</script>
