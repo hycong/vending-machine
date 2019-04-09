@@ -1,212 +1,75 @@
 <div class="left-side sticky-left-side">
-
     <div class="logo">
-        <a href="index.html"><img
-                src="/resource/web/images/logo.png" alt=""></a>
+        <a href="index.html"><img src="/resource/web/images/logo.png" alt="logo"></a>
     </div>
     <div class="logo-icon text-center">
-        <a href="index.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/index.html"><img
-                src="/resource/web/images/logo_icon.png"
-                tppabs="http://www.jq22.com/demo/AdminEx-141217204554/images/logo_icon.png" alt=""></a>
+        <a href="{:url('Index/index')}"><img src="/resource/web/images/logo_icon.png" alt="logo"></a>
     </div>
-
     <div class="left-side-inner">
-
-        <div class="visible-xs hidden-sm hidden-md hidden-lg">
-            <div class="media logged-user">
-                <img alt="" src="/resource/web/images/photos/user-avatar.png"
-                     tppabs="http://www.jq22.com/demo/AdminEx-141217204554/images/photos/user-avatar.png"
-                     class="media-object">
-                <div class="media-body">
-                    <h4><a href="#">John Doe</a></h4>
-                    <span>"Hello There..."</span>
-                </div>
-            </div>
-            <h5 class="left-nav-title">Account Information</h5>
-            <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-                <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
-            </ul>
-        </div>
-
         <ul class="nav nav-pills nav-stacked custom-nav">
-            <li class="menu-list nav-active"><a href="index.html"
-                                                tppabs="http://www.jq22.com/demo/AdminEx-141217204554/index.html"><i
-                    class="fa fa-home"></i> <span>Dashboard</span></a>
+            <!-- nav-active -->
+            <li class="active">
+                <a href="{:url('Index/index')}">
+                    <i class="fa fa-home"></i> <span>首页</span>
+                </a>
+            </li>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-laptop"></i> <span>设备管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="index_alt.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/index_alt.html"> Dashboard 1</a>
-                    </li>
-                    <li class="active"><a href="index.html"
-                                          tppabs="http://www.jq22.com/demo/AdminEx-141217204554/index.html">
-                        Dashboard 2</a></li>
+                    <li><a href="blank_page.html"> 设备类型</a></li>
+                    <li><a href="blank_page.html"> 设备列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+            <li class="menu-list">
+                <a href="javascript:void(0);"><i class="fa fa-book"></i> <span>商品管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="blank_page.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/blank_page.html"> Blank Page</a>
-                    </li>
-                    <li><a href="boxed_view.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/boxed_view.html"> Boxed Page</a>
-                    </li>
-                    <li><a href="leftmenu_collapsed_view.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/leftmenu_collapsed_view.html">
-                        Sidebar Collapsed</a></li>
-                    <li><a href="horizontal_menu.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/horizontal_menu.html"> Horizontal
-                        Menu</a></li>
+                    <li><a href="#"> 商品库</a></li>
+                    <li><a href="#"> 商品列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-cogs"></i> <span>广告管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="general.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/general.html">
-                        General</a></li>
-                    <li><a href="buttons.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/buttons.html">
-                        Buttons</a></li>
-                    <li><a href="tabs-accordions.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/tabs-accordions.html"> Tabs &
-                        Accordions</a></li>
-                    <li><a href="typography.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/typography.html"> Typography</a>
-                    </li>
-                    <li><a href="slider.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/slider.html">
-                        Slider</a></li>
-                    <li><a href="panels.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/panels.html">
-                        Panels</a></li>
-                    <li><a href="widgets.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/widgets.html">
-                        Widgets</a></li>
+                    <li><a href="#"> 素材列表</a></li>
+                    <li><a href="#"> 投放列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-envelope"></i> <span>微信管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="grids.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/grids.html">
-                        Grids</a></li>
-                    <li><a href="gallery.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/gallery.html">
-                        Media Gallery</a></li>
-                    <li><a href="calendar.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/calendar.html"> Calendar</a></li>
-                    <li><a href="tree_view.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/tree_view.html"> Tree View</a></li>
-                    <li><a href="nestable.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/nestable.html"> Nestable</a></li>
+                    <li><a href="#"> 微信配置</a></li>
+                    <li><a href="#"> 微信菜单</a></li>
+                    <li><a href="#"> 回复设置</a></li>
+                    <li><a href="#"> 微信关键字</a></li>
+                    <li><a href="#"> 支付设置</a></li>
                 </ul>
             </li>
-            <li><a href="fontawesome.html"
-                   tppabs="http://www.jq22.com/demo/AdminEx-141217204554/fontawesome.html"><i
-                    class="fa fa-bullhorn"></i> <span>Fontawesome</span></a></li>
-            <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-tasks"></i> <span>数据管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="mail.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/mail.html">
-                        Inbox</a></li>
-                    <li><a href="mail_compose.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/mail_compose.html"> Compose
-                        Mail</a></li>
-                    <li><a href="mail_view.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/mail_view.html"> View Mail</a></li>
+                    <li><a href="#"> 数据展示</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-bar-chart-o"></i> <span>订单管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="form_layouts.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/form_layouts.html"> Form
-                        Layouts</a></li>
-                    <li><a href="form_advanced_components.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/form_advanced_components.html">
-                        Advanced Components</a></li>
-                    <li><a href="form_wizard.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/form_wizard.html"> Form Wizards</a>
-                    </li>
-                    <li><a href="form_validation.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/form_validation.html"> Form
-                        Validation</a></li>
-                    <li><a href="editors.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/editors.html">
-                        Editors</a></li>
-                    <li><a href="inline_editors.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/inline_editors.html"> Inline
-                        Editors</a></li>
-                    <li><a href="pickers.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/pickers.html">
-                        Pickers</a></li>
-                    <li><a href="dropzone.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/dropzone.html"> Dropzone</a></li>
+                    <li><a href="#"> 订单列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-th-list"></i> <span>提现管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="flot_chart.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/flot_chart.html"> Flot Charts</a>
-                    </li>
-                    <li><a href="morris.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/morris.html">
-                        Morris Charts</a></li>
-                    <li><a href="chartjs.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/chartjs.html">
-                        Chartjs</a></li>
-                    <li><a href="c3chart.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/c3chart.html">
-                        C3 Charts</a></li>
+                    <li><a href="#"> 提现列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+            <li class="menu-list">
+                <a href="#"><i class="fa fa-map-marker"></i> <span>系统设置</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="basic_table.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/basic_table.html"> Basic Table</a>
-                    </li>
-                    <li><a href="dynamic_table.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/dynamic_table.html"> Advanced
-                        Table</a></li>
-                    <li><a href="responsive_table.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/responsive_table.html"> Responsive
-                        Table</a></li>
-                    <li><a href="editable_table.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/editable_table.html"> Edit
-                        Table</a></li>
+                    <li><a href="#"> 分佣设置</a></li>
+                    <li><a href="#"> 修改密码</a></li>
+                    <li><a href="#"> 退出系统</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
-                <ul class="sub-menu-list">
-                    <li><a href="google_map.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/google_map.html"> Google Map</a>
-                    </li>
-                    <li><a href="vector_map.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/vector_map.html"> Vector Map</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                <ul class="sub-menu-list">
-                    <li><a href="profile.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/profile.html">
-                        Profile</a></li>
-                    <li><a href="invoice.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/invoice.html">
-                        Invoice</a></li>
-                    <li><a href="pricing_table.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/pricing_table.html"> Pricing
-                        Table</a></li>
-                    <li><a href="timeline.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/timeline.html"> Timeline</a></li>
-                    <li><a href="blog_list.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/blog_list.html"> Blog List</a></li>
-                    <li><a href="blog_details.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/blog_details.html"> Blog
-                        Details</a></li>
-                    <li><a href="directory.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/directory.html"> Directory </a>
-                    </li>
-                    <li><a href="chat.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/chat.html">
-                        Chat </a></li>
-                    <li><a href="404.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/404.html"> 404
-                        Error</a></li>
-                    <li><a href="500.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/500.html"> 500
-                        Error</a></li>
-                    <li><a href="registration.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/registration.html"> Registration
-                        Page</a></li>
-                    <li><a href="lock_screen.html"
-                           tppabs="http://www.jq22.com/demo/AdminEx-141217204554/lock_screen.html"> Lockscreen </a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="login.html" tppabs="http://www.jq22.com/demo/AdminEx-141217204554/login.html"><i
-                    class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
         </ul>
-
     </div>
 </div>
