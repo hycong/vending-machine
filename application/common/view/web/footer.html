@@ -4,3 +4,37 @@
 <script src="/resource/web/js/modernizr.min.js"></script>
 <script src="/resource/web/js/jquery.nicescroll.js"></script>
 <script src="/resource/web/js/scripts.js"></script>
+<script>
+    var isSubmit = true;
+    var submit_option = {
+        url:'',
+        data:{},
+        type:'POST',
+        dataType: 'json',
+        fun:function (res) {}
+    };
+    /**
+     * 提交处理
+     * @param id
+     */
+    function submit_form(option) {
+        if(isSubmit == false) return false;
+        option = $.extend(submit_option,option);
+        isSubmit = false;
+        $.ajax({
+            url: option.url,
+            data: option.data,
+            type:'POST',
+            dataType:'json',
+            success:function (res) {
+                option.fun(res);
+                isSubmit = true;
+            },
+            error:function (e) {
+                console.log('提交错误！');
+                console.log(e);
+                isSubmit = true;
+            }
+        });
+    }
+</script>

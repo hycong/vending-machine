@@ -29,7 +29,7 @@ class Depost extends Common
             ->where($map)
             ->order("e.extract_time DESC")
             ->field("e.*,ag.agent_name")
-            ->paginate(20,false,["query"=>request()->param()]);
+            ->paginate($this->pageNum,false,["query"=>request()->param()]);
         $agent_list = Db::name("agent")->select();
         $this->assign("agent_list",$agent_list);
         $this->assign("agent_record",$agent_record);
@@ -68,7 +68,7 @@ class Depost extends Common
                 }
                 Db::name('agent')->where($agent_map)->setDec('agent_frozen',$extract['extract_money'] + $extract['extract_tax']);  // 减去冻结金额
                 Db::commit();
-                return $this->success('success');
+                return $this->success('处理成功');
             }else{
                 Db::rollback();
                 return $this->error('审核失败');
