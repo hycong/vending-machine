@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 提现管理"}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{:url('Index/index')}">首页</a>
+                </li>
+                <li>
+                    <a href="{:url('Index/index')}">复现管理</a>
+                </li>
+                <li class="active"> 提现列表</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">提现列表</header>
+                        <div class="panel-body text-right">
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <select class="form-control" id="agent" name="agent">
+                                        <option value="0">加盟商</option>
+                                        {volist name="agent_list" id="a"}
+                                        <option value="{$a.agent_id}" {if condition="$Think.get.agent == $a.agent_id"}selected{/if}>{$a.agent_name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="status" name="status">
+                                        <option value="0" {if condition="$Think.get.status == 0"}selected{/if}>状态</option>
+                                        <option value="1" {if condition="$Think.get.status == 1"}selected{/if}>申请中</option>
+                                        <option value="2" {if condition="$Think.get.status == 2"}selected{/if}>已通过</option>
+                                        <option value="3" {if condition="$Think.get.status == 3"}selected{/if}>审核不通过</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-info">搜索</button>
+                            </form>
+                        </div>
+                        <div class="panel-body">
+                            <section id="unseen">
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">提现ID</th>
+                                            <th >提现加盟商</th>
+                                            <th >提现金额</th>
+                                            <th >提现银行</th>
+                                            <th >提现账号</th>
+                                            <th >提现人</th>
+                                            <th >提现人电话</th>
+                                            <th >提现时间</th>
+                                            <th class="text-center">提现状态</th>
+                                            <th >操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {volist name="agent_record" id="ac"}
+                                        <tr>
+                                            <td class="text-middle text-center">{$ac.extract_id}</td>
+                                            <td class="text-middle">{$ac.agent_name}</td>
+                                            <td class="text-middle">{$ac.extract_money|floatval}</td>
+                                            <td class="text-middle">{$ac.extract_bank}</td>
+                                            <td class="text-middle">{$ac.extract_card}</td>
+                                            <td class="text-middle">{$ac.extract_name}</td>
+                                            <td class="text-middle">{$ac.extract_mobile}</td>
+                                            <td class="text-middle text-center">{$ac.extract_time}</td>
+                                            <td class="text-middle text-center">
+                                                {switch name="ac.extract_status"}
+                                                {case value="0"}<span style="color: orange">未处理</span>{/case}
+                                                {case value="1"}<span style="color: green">已转账</span>{/case}
+                                                {case value="2"}<span style="color: red">已拒绝</span>{/case}
+                                                {/switch}
+                                            </td>
+                                            <td class="">
+                                                <a class="btn btn-sm btn-info" href="{:url('depost',['extract_id'=>$ac.extract_id])}">详情</a>
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="dataTables_paginate paging_bootstrap pagination">{$agent_record->render()}</div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{include file="../application/common/view/web/footer.html"}
+</body>
+</html>
