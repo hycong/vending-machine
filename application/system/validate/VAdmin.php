@@ -6,7 +6,7 @@
  * Time: 15:36
  */
 
-namespace app\agentpc\validate;
+namespace app\system\validate;
 
 
 use think\Validate;
