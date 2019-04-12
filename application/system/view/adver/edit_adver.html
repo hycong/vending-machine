@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 广告管理:素材列表"}
+    <link href="/resource/web/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/square.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/red.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/blue.css" rel="stylesheet">
+    <link href="/resource/web/css/clndr.css" rel="stylesheet">
+    <!--引入CSS-->
+    <link rel="stylesheet" type="text/css" href="/webUpload/webuploader.css">
+    <!--引入JS-->
+    <script type="text/javascript" src="/webUpload/webuploader.js"></script>
+    <style>
+        #advResType>div{
+            float: left;
+        }
+    </style>
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <!--<h3>-->
+            <!--广告素材-->
+            <!--</h3>-->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">广告管理</a>
+                </li>
+                <li class="active"> 编辑广告素材 </li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            添加广告素材
+                        </header>
+                        <div class="panel-body">
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" id="commentForm" method="get"
+                                      action="">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-2">广告名称</label>
+                                        <div class="col-lg-10">
+                                            <input class=" form-control" id="cname" name="name" minlength="2"
+                                                   type="text" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="advType">
+                                        <label class="control-label col-lg-2"> 投放设备类型 </label>
+                                        <div class="col-sm-9 icheck" >
+                                            <div class="square-blue single-row ">
+                                                <div class="radio">
+                                                    <input tabindex="1" type="radio" id="advType1" value="1" name="advType" checked>
+                                                    <label for="advType1"> 横屏 </label>
+                                                </div>
+                                            </div>
+                                            <div class="square-blue single-row">
+                                                <div class="radio">
+                                                    <input tabindex="2" type="radio" id="advType2" value="2" name="advType">
+                                                    <label for="advType2"> 竖屏 </label>
+                                                </div>
+                                            </div>
+                                            <div class="square-blue single-row">
+                                                <div class="radio ">
+                                                    <input tabindex="3" type="radio" id="advType3" value="3" name="advType">
+                                                    <label for="advType3"> 横屏分屏 </label>
+                                                </div>
+                                            </div>
+                                            <div class="square-blue single-row">
+                                                <div class="radio ">
+                                                    <input tabindex="4" type="radio" id="advType4" value="4" name="advType">
+                                                    <label for="advType4"> 竖屏分屏 </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label class="control-label col-lg-2">广告类型</label>
+                                        <div class="col-sm-9 icheck" id="advResType">
+                                            <div class="square-blue single-row ">
+                                                <div class="radio">
+                                                    <input tabindex="2" type="radio" id="advResType1" name="advResType" value="1" checked>
+                                                    <label for="advResType1"> 图片 </label>
+                                                </div>
+                                            </div>
+                                            <div class="square-blue single-row">
+                                                <div class="radio">
+                                                    <input tabindex="2" type="radio" id="advResType2" value="2" name="advResType">
+                                                    <label for="advResType2"> 视频 </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="advResource" class="control-label col-lg-2">图片上传</label>
+                                        <div class="col-lg-10" id="advResource">
+                                            <div id="uploader">
+                                                <input type="hidden" name="video_src" id="video_src">
+                                                　<div id="thelist" class="uploader-list"></div> <!--<div id="fileList" class="uploader-list"></div>-->
+                                                　<div id="picker"><i class="fa fa-cloud-upload"></i> 上传</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-success" type="submit">提交</button>
+                                            <button class="btn btn-primary" type="button">返回</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script src="/resource/web/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/resource/web/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/resource/web/js/bootstrap.min.js"></script>
+<script src="/resource/web/js/modernizr.min.js"></script>
+<script src="/resource/web/js/jquery.nicescroll.js"></script>
+
+<script src="/resource/web/js/iCheck/jquery.icheck.js"></script>
+<script src="/resource/web/js/icheck-init.js"></script>
+
+<script src="/resource/web/js/scripts.js"></script>
+<script>
+    // 文件上传
+    jQuery(function() {
+        var $ = jQuery,
+            $list = $('#thelist'),
+            $btn = $('#ctlBtn'),
+            state = 'pending',
+            uploader;
+
+        uploader = WebUploader.create({
+
+            // 不压缩image
+            resize: false,
+
+            // swf文件路径
+            swf: '/webUpload/js/Uploader.swf',
+
+            // 文件接收服务端。
+            server: '{:url("webUpload")}',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#picker',
+            fileNumLimit:1,
+            auto: true,
+            // duplicate :true
+        });
+
+        uploader.on('beforeFileQueued',function(file){
+            // console.log('before',file);
+            uploader.reset();
+        });
+        // 当有文件添加进来的时候
+        uploader.on( 'fileQueued', function( file ) {
+            // $("#picker").on("click",function () {
+            //     uploader.removeFile(file);
+            // });
+            // console.log('file',file);
+            $list.empty();
+            $list.append( '<div id="WU_FILE_0" class="item">' +
+                '<h4 class="info">' + file.name + '</h4>' +
+                '<p class="state">等待上传...</p>' +
+                '</div>' );
+        });
+
+        // 文件上传过程中创建进度条实时显示。
+        uploader.on( 'uploadProgress', function( file, percentage ) {
+            var $li = $( '#WU_FILE_0' ),
+                $percent = $li.find('.progress .progress-bar');
+
+            // 避免重复创建
+            if ( !$percent.length ) {
+                $percent = $('<div class="progress progress-striped active">' +
+                    '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                    '</div>' +
+                    '</div>').appendTo( $li ).find('.progress-bar');
+            }
+
+            $li.find('p.state').text('上传中');
+
+            $percent.css( 'width', percentage * 100 + '%' );
+        });
+
+        uploader.on( 'uploadSuccess', function( file ,response) {
+            console.log("fileName",response);
+            if(response["state"] == 200){
+                $( '#WU_FILE_0' ).find('p.state').text('已上传');
+                $("#video_src").val(response["data"]);
+            }else{
+                $( '#WU_FILE_0' ).find('p.state').text('上传失败');
+            }
+
+        });
+
+        uploader.on( 'uploadError', function( file ) {
+            $( '#WU_FILE_0' ).find('p.state').text('上传出错');
+        });
+
+        uploader.on( 'uploadComplete', function( file ) {
+            $( '#WU_FILE_0' ).find('.progress').fadeOut();
+        });
+
+        uploader.on( 'all', function( type ) {
+            if ( type === 'startUpload' ) {
+                state = 'uploading';
+            } else if ( type === 'stopUpload' ) {
+                state = 'paused';
+            } else if ( type === 'uploadFinished' ) {
+                state = 'done';
+            }
+
+            if ( state === 'uploading' ) {
+                $btn.text('暂停上传');
+            } else {
+                $btn.text('开始上传');
+            }
+        });
+
+        $btn.on( 'click', function() {
+            if ( state === 'uploading' ) {
+                uploader.stop();
+            } else {
+                uploader.upload();
+            }
+        });
+    });
+    // 图片上传
+    jQuery(function() {
+        var $ = jQuery,
+            $list = $('#fileList'),
+            // 优化retina, 在retina下这个值是2
+            ratio = window.devicePixelRatio || 1,
+
+            // 缩略图大小
+            thumbnailWidth = 100 * ratio,
+            thumbnailHeight = 100 * ratio,
+
+            // Web Uploader实例
+            uploader;
+
+        // 初始化Web Uploader
+        uploader = WebUploader.create({
+
+            // 自动上传。
+            auto: true,
+
+            // swf文件路径
+            swf:  '/webUplaod/js/Uploader.swf',
+
+            // 文件接收服务端。
+            server: '{:url("webUpload")}',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePicker',
+
+            fileNumLimit:'1',
+
+            // 只允许选择文件，可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
+        uploader.on('beforeFileQueued',function(file){
+            // console.log('before',file);
+            uploader.reset();
+        });
+        // 当有文件添加进来的时候
+        uploader.on( 'fileQueued', function( file ) {
+            var $li = $(
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                '<img>' +
+                '<div class="info">' + file.name + '</div>' +
+                '</div>'
+                ),
+                $img = $li.find('img');
+            $list.empty();
+            $list.append( $li );
+
+            // 创建缩略图
+            uploader.makeThumb( file, function( error, src ) {
+                if ( error ) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+
+                $img.attr( 'src', src );
+            }, thumbnailWidth, thumbnailHeight );
+        });
+
+        // 文件上传过程中创建进度条实时显示。
+        uploader.on( 'uploadProgress', function( file, percentage ) {
+            var $li = $( '#'+file.id ),
+                $percent = $li.find('.progress span');
+
+            // 避免重复创建
+            if ( !$percent.length ) {
+                $percent = $('<p class="progress"><span></span></p>')
+                    .appendTo( $li )
+                    .find('span');
+            }
+
+            $percent.css( 'width', percentage * 100 + '%' );
+        });
+
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on( 'uploadSuccess', function( file ) {
+            $( '#'+file.id ).addClass('upload-state-done');
+        });
+
+        // 文件上传失败，现实上传出错。
+        uploader.on( 'uploadError', function( file ) {
+            var $li = $( '#'+file.id ),
+                $error = $li.find('div.error');
+
+            // 避免重复创建
+            if ( !$error.length ) {
+                $error = $('<div class="error"></div>').appendTo( $li );
+            }
+
+            $error.text('上传失败');
+        });
+
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on( 'uploadComplete', function( file ) {
+            $( '#'+file.id ).find('.progress').remove();
+        });
+    });
+
+    jQuery(function() {
+        $('input:radio[name="advResType"]').click(function() {
+            var opt=$("input:radio[name='advResType']:checked").val();//
+            console.log('radio',opt);
+            });
+        $('input:radio').click(function () {
+           alert("123456");
+        });
+    });
+</script>
+
+</body>
+</html>

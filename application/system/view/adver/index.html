@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 广告管理:素材列表"}
+    <link href="/resource/web/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/square.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/red.css" rel="stylesheet">
+    <link href="/resource/web/js/iCheck/skins/square/blue.css" rel="stylesheet">
+    <link href="/resource/web/css/clndr.css" rel="stylesheet">
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <!--<h3>-->
+                <!--广告素材-->
+            <!--</h3>-->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">广告管理</a>
+                </li>
+                <li class="active"> 广告素材 </li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            广告素材
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="btn-group">
+                                <ul id="filters" class="media-filter">
+                                    <li><a href="#advType" data-toggle="modal"> 添加素材 </a></li>
+                                </ul>
+                            </div>
+                            <!--<div class="btn-group pull-right">-->
+                                <!--<button type="button" class="btn btn-primary btn-sm" data-toggle="advType"><i-->
+                                        <!--class="fa fa-check-square-o"></i> Select all-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-folder-open"></i>-->
+                                    <!--Add New-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-trash-o"></i>-->
+                                    <!--Delete-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-upload"></i> Upload-->
+                                    <!--New File-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <div id="gallery" class="media-gal">
+                                <div class="images item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img01.jpg </p>
+                                </div>
+                                <div class=" audio item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img02.jpg </p>
+                                </div>
+                                <div class=" video item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img03.jpg </p>
+                                </div>
+                                <div class=" images audio item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img04.jpg </p>
+                                </div>
+                                <div class=" images documents item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img05.jpg </p>
+                                </div>
+                                <div class=" audio item">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img01.jpg </p>
+                                </div>
+                                <div class=" documents item">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img02.jpg </p>
+                                </div>
+                                <div class=" video item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img03.jpg </p>
+                                </div>
+                                <div class=" images item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img04.jpg </p>
+                                </div>
+                                <div class=" documents item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img05.jpg </p>
+                                </div>
+                                <div class=" video item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img01.jpg </p>
+                                </div>
+                                <div class=" audio images item ">
+                                    <a href="#myModal" data-toggle="modal">
+                                        <img src="/resource/web/images/StarWars.jpg" alt=""/>
+                                    </a>
+                                    <p>img02.jpg </p>
+                                </div>
+                            </div>
+                            <!--分页-->
+                            <div class="col-md-12 text-center clearfix">
+
+                            </div>
+
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <h4 class="modal-title">Edit Media Gallery</h4>
+                                        </div>
+                                        <div class="modal-body row">
+                                            <div class="col-md-5 img-modal">
+                                                <img src="/resource/web/images/StarWars.jpg"
+                                                     alt="">
+                                                <a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i>
+                                                    Edit Image</a>
+                                                <a href="#" class="btn btn-white btn-sm"><i class="fa fa-eye"></i> View
+                                                    Full Size</a>
+                                                <p class="mtop10"><strong>File Name:</strong> img01.jpg</p>
+                                                <p><strong>File Type:</strong> jpg</p>
+                                                <p><strong>Resolution:</strong> 300x200</p>
+                                                <p><strong>Uploaded By:</strong> <a href="#">ThemeBucket</a></p>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    <label> Name</label>
+                                                    <input id="name" value="/resource/web/images/StarWars.jpg" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label> Tittle Text</label>
+                                                    <input id="title" value="awesome image" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label> Description</label>
+                                                    <textarea rows="2" class="form-control"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label> Link URL</label>
+                                                    <input id="link" value="images/gallery/img01.jpg"
+                                                           class="form-control">
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button class="btn btn-danger btn-sm" type="button">Delete</button>
+                                                    <button class="btn btn-success btn-sm" type="button">Save changes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="advType" tabindex="1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <h4 class="modal-title">选择投放类型</h4>
+                                        </div>
+                                        <div class="modal-body row">
+                                            <div class="col-md-5 img-modal">
+
+                                                <a href="{:url('addAdver',['advType'=>1])}" class="btn btn-white btn-sm"><i class="fa fa-eye"></i>
+                                                    不分屏</a>
+                                                <a href="{:url('addAdver',['advType'=>2])}" class="btn btn-white btn-sm"><i class="fa fa-eye"></i>分屏</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script src="/resource/web/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/resource/web/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/resource/web/js/bootstrap.min.js"></script>
+<script src="/resource/web/js/modernizr.min.js"></script>
+<script src="/resource/web/js/jquery.nicescroll.js"></script>
+
+<script src="/resource/web/js/iCheck/jquery.icheck.js"></script>
+<script src="/resource/web/js/icheck-init.js"></script>
+
+<script src="/resource/web/js/scripts.js"></script>
+</body>
+</html>
