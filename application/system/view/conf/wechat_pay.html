@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 微信管理"}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{:url('Index/index')}">首页</a>
+                </li>
+                <li>
+                    <a href="{:url('Index/index')}">微信管理</a>
+                </li>
+                <li class="active"> 微信支付配置</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">微信支付配置</header>
+                        <div class="panel-body">
+                            <form action="" class="form-horizontal adminex-form" id="wechat" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">开发者ID（appid）</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" name="conf_content[app_id]" value="{$info.app_id|default=''}" placeholder="请输入appid">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">开发者密码（appsecret）</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" name="conf_content[appsecret]" value="{$info.appsecret|default=''}" placeholder="请输入appsecret" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">微信支付商户号（mchid）</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" name="conf_content[mch_id]" value="{$info.mch_id|default=''}" placeholder="请输入商户号" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">微信支付密钥（key）</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" name="conf_content[key]" value="{$info.key|default=''}" placeholder="请输入支付密钥"  >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">CERT文件</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input type="file" name="apiclient_cert"  placeholder="微信支付cert文件"  >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">key文件</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input type="file" name="apiclient_key" placeholder="微信支付key文件" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-sm-10 col-lg-push-2 col-sm-push-2">
+                                        <button type="submit" id="subs" class="btn btn-info">保存设置</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{include file="../application/common/view/web/footer.html"}
+</body>
+</html>
+<script>
+    $('#sub').click(function () {
+        submit_form({
+            url: '{:url("wechat")}',
+            data: $('#wechat').serialize(),
+            fun: function (res) {
+                if(res.state == 200){
+                    layer.msg(res.msg,{},function () {
+                        window.location.reload();
+                    });
+                }else{
+                    layer.msg(res.msg);
+                }
+            }
+        });
+    });
+</script>

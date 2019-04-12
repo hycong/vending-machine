@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 微信管理"}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <ul class="breadcrumb">
+                <ul class="breadcrumb">
+                    <li><a href="{:url('Index/index')}">首页</a></li>
+                    <li><a href="{:url('Conf/wechat')}">微信管理</a></li>
+                    <li class="active"> 修改关键字</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">修改关键字</header>
+                        <div class="panel-body">
+                            <form action="" class="form-horizontal adminex-form" id="form">
+                                <input type="hidden" name="keyword_id" value="{$info.keyword_id}">
+                                <div class="form-group">
+                                    <label for="keyword_title" class="col-lg-2 col-sm-2 control-label">关键字</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" id="keyword_title" name="keyword_title"  value="{$info.keyword_title}" placeholder="请输入关键字" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="keyword_reply" class="col-lg-2 col-sm-2 control-label">回复内容</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" id="keyword_reply" name="keyword_reply"  value="{$info.keyword_reply}" placeholder="请输入回复内容" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="keyword_url" class="col-lg-2 col-sm-2 control-label">链接地址</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <input class="form-control" type="text" id="keyword_url" name="keyword_url"  value="{$info.keyword_url}" placeholder="请输入链接地址">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="keyword_responseType" class="col-lg-2 col-sm-2 control-label">回复类型</label>
+                                    <div class="col-lg-10 col-sm-10">
+                                        <select name="keyword_responseType" class="form-control" id="keyword_responseType">
+                                            <option value="1" {if condition="$info.keyword_responseType == 1"}selected{/if}>文字</option>
+                                            <!--<option value="2">图片</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-sm-10 col-lg-push-2 col-sm-push-2">
+                                        <button type="button" id="sub" class="btn btn-info">保存设置</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{include file="../application/common/view/web/footer.html"}
+</body>
+</html>
+<script>
+    $('#sub').click(function () {
+        submit_form({
+            url: '{:url("")}',
+            data: $('#form').serialize(),
+            fun: function (res) {
+                if(res.state == 200){
+                    layer.msg(res.msg,{},function () {
+                        window.location.href = '{:url("index")}';
+                    });
+                }else{
+                    layer.msg(res.msg);
+                }
+            }
+        });
+    });
+</script>

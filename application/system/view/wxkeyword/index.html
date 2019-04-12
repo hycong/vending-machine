@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 微信管理"}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <ul class="breadcrumb">
+                <li><a href="{:url('Index/index')}">首页</a></li>
+                <li><a href="{:url('Conf/wechat')}">微信管理</a></li>
+                <li class="active"> 关键字回复</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            关键字回复
+                            <div class="pull-right pull-btn-list">
+                                <a class="btn btn-info btn-sm" href="{:url('addkeyword')}"><i class="fa fa-plus"></i> 创建关键字</a>
+                            </div>
+                        </header>
+                        <div class="panel-body">
+                            <section id="unseen">
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th >关键字</th>
+                                        <th >回复类型</th>
+                                        <th >创建时间</th>
+                                        <th >操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {volist name="list" id="vo"}
+                                    <tr class="">
+                                        <td class="text-middle text-center">{$vo.keyword_id}</td>
+                                        <td class="text-middle">{$vo.keyword_title}</td>
+                                        <td class="text-middle text-center">
+                                            {switch name="$vo.keyword_responseType"}
+                                            {case value="1"}<span style="">文字</span>{/case}
+                                            {case value="2"}<span style="">图片</span>{/case}
+                                            {/switch}
+                                        </td>
+                                        <td class="text-middle">{$vo.keyword_createTime}</td>
+                                        <td class="">
+                                            <a class="btn btn-sm btn-info" href="{:url('editkeyword',['keyword_id'=>$vo.keyword_id])}"><i class="fa fa-edit"></i> 编辑</a>
+                                            <button class="btn btn-sm btn-danger" onclick="delkeyword('{$vo.keyword_id}')"><i class="fa fa-trash"></i> 删除</button>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                    </tbody>
+                                </table>
+                                <div class="row-fluid">
+                                    <div class="dataTables_paginate paging_bootstrap pagination">{$list->render()}</div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{include file="../application/common/view/web/footer.html"}
+</body>
+</html>
+<script>
+
+    function delkeyword(id) {
+        layer.confirm('你确定要删除？', {title:'温馨提示'}, function(index){
+            submit_form({
+                url : '{:url("delkeyword")}',
+                data : {keyword_id:id},
+                fun : function (res) {
+                    if(res.state = 200){
+                        layer.msg(res.msg,{},function () {
+                            window.location.reload();
+                        });
+                    }else{
+                        layer.msg(res.msg);
+                    }
+                }
+            });
+            layer.close(index);
+        });
+    }
+</script>

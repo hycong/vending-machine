@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="../application/common/view/web/head.html" title=" - 提现管理"}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="../application/common/view/web/left.html"}
+    <div class="main-content">
+        {include file="../application/common/view/web/header.html"}
+        <div class="page-heading">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{:url('Index/index')}">首页</a>
+                </li>
+                <li>
+                    <a href="{:url('Index/index')}">复现管理</a>
+                </li>
+                <li class="active"> 提现列表</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">提现详情</header>
+                        <div class="panel-body">
+                            <form action="" class="form-horizontal adminex-form">
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <tr>
+                                        <td class="am-text-right">提现状态</td>
+                                        {switch name="$info.extract_status"}
+                                        {case value="0"}
+                                        <td style="background-color: #ccc">未处理</td>
+                                        {/case}
+                                        {case value="1"}
+                                        <td style="background-color: #0daf35;color: #fff;">已转账</td>
+                                        {/case}
+                                        {case value="2"}
+                                        <td style="background-color: #cc0c03;color: #fff;">已拒绝</td>
+                                        {/case}
+                                        {/switch}
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现加盟商 (ID)</td>
+                                        <td class="">{$info.agent_name} ({$info.extract_agent_id})</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现金额</td>
+                                        <td class="">￥{$info.extract_money|floatval} <strong style="color: red;">(
+                                            提现：￥{$info.extract_money|floatval}，手续费：￥{$info.extract_tax|floatval}
+                                            )</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现银行</td>
+                                        <td class="">{$info.extract_bank}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现账号</td>
+                                        <td class="">{$info.extract_card}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现人</td>
+                                        <td class="">{$info.extract_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现人电话</td>
+                                        <td class="">{$info.extract_mobile}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">申请时间</td>
+                                        <td class="">{$info.extract_time}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">提现备注</td>
+                                        <td class="">{$info.extract_remark}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">处理结果</td>
+                                        <td class="">{$info.extract_remark}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right">处理人</td>
+                                        <td class="">
+                                            {switch name="$info.extract_deal_agent"}
+                                            {case value="0"}/{/case}
+                                            {case value="-1"}总后台{/case}
+                                            {default /}{$info.extract_deal_agent}
+                                            {/switch}
+                                        </td>
+                                    </tr>
+                                    {if condition="$info.extract_status == 0"}
+                                    <tr>
+                                        <td class="am-text-right am-text-middle">处理结果</td>
+                                        <td class="am-form am-text-middle">
+                                            <input type="hidden" name="extract_id" value="{$info.extract_id}">
+                                            <label class="am-radio-inline">
+                                                <input type="radio" value="1" name="extract_status"> 已转账
+                                            </label>
+                                            <label class="am-radio-inline">
+                                                <input type="radio" value="2" checked name="extract_status"> 已拒绝
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right am-text-middle">处理结果备注</td>
+                                        <td class="">
+                                            <div class="am-form">
+                                                <textarea name="extract_remark" class="form-control" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="am-text-right am-text-middle">处理结果备注</td>
+                                        <td class="">
+                                            <input type="submit" class="am-btn am-btn-primary" value="提交审核">
+                                        </td>
+                                    </tr>
+                                    {/if}
+                                </table>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{include file="../application/common/view/web/footer.html"}
+</body>
+</html>
+<script>
+    new_url = '{:url("index")}';
+</script>

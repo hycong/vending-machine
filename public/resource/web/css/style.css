@@ -1,12 +1,10 @@
-@import "../../../../fonts.googleapis.com/css-family=Open+Sans-400,300,300italic,400italic,600,600italic,700,700italic,800,800italic.css"/*tpa=http://fonts.googleapis.com/css?family=Open+Sans:400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic*/;
-
 @import "bootstrap.min.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/css/bootstrap.min.css*/;
 
 @import "bootstrap-reset.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/css/bootstrap-reset.css*/;
 
 @import "jquery-ui-1.10.3.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/css/jquery-ui-1.10.3.css*/;
 
-@import "../fonts/css/font-awesome.min.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/fonts/css/font-awesome.min.css*/;
+@import "font-awesome.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/fonts/css/font-awesome.min.css*/;
 
 @import "custom-ico-fonts.css"/*tpa=http://www.jq22.com/demo/AdminEx-141217204554/css/custom-ico-fonts.css*/;
 
@@ -5087,4 +5085,7 @@ ul.iconic-list li a:hover,ul.iconic-list li.active a {
 }
 .text-middle {
     vertical-align: middle !important;
+}
+.pull-btn-list {
+    margin: -5px 0;
 }
